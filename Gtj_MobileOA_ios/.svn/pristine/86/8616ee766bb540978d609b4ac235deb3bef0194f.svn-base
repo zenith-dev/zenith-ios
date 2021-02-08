@@ -1,0 +1,16 @@
+platform :ios  ,'11.0'
+target 'dtgh' do
+pod 'Reachability', '~> 3.2'   
+pod 'AFNetworking', '~> 2.0' 
+pod 'SVProgressHUD', '~> 1.1.3'
+pod 'SDWebImage', '~> 3.7.3'
+pod 'MJRefresh', '~> 3.0.7'
+pod 'JSONKit', '~> 1.5pre'
+pod 'IQKeyboardManager', '~> 3.3.2' 
+pod 'FMDB', '~> 2.5'
+pod 'MJPhotoBrowser', '~> 1.0.2'
+pod 'KxMenu', '~> 1'
+pod 'OHAttributedLabel', '~> 3.5.5'
+pod 'BlocksKit', '~> 2.2.5'
+pod 'MJExtension', '~> 3.0.10'
+end
