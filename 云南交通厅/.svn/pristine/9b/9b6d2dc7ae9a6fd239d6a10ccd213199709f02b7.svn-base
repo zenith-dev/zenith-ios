@@ -1,0 +1,1 @@
+link ../../../HPGrowingTextView/class/HPGrowingTextView.h

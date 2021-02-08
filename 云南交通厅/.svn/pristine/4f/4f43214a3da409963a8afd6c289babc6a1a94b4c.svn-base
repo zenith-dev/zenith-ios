@@ -1,0 +1,107 @@
+PODS:
+  - AFNetworking (2.6.3):
+    - AFNetworking/NSURLConnection (= 2.6.3)
+    - AFNetworking/NSURLSession (= 2.6.3)
+    - AFNetworking/Reachability (= 2.6.3)
+    - AFNetworking/Security (= 2.6.3)
+    - AFNetworking/Serialization (= 2.6.3)
+    - AFNetworking/UIKit (= 2.6.3)
+  - AFNetworking/NSURLConnection (2.6.3):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.6.3):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.6.3)
+  - AFNetworking/Security (2.6.3)
+  - AFNetworking/Serialization (2.6.3)
+  - AFNetworking/UIKit (2.6.3):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+  - BlocksKit (2.2.5):
+    - BlocksKit/All (= 2.2.5)
+  - BlocksKit/All (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+    - BlocksKit/MessageUI
+    - BlocksKit/UIKit
+  - BlocksKit/Core (2.2.5)
+  - BlocksKit/DynamicDelegate (2.2.5)
+  - BlocksKit/MessageUI (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+  - BlocksKit/UIKit (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+  - HPGrowingTextView (1.1)
+  - IQKeyboardManager (3.3.7)
+  - MBProgressHUD (0.9.2)
+  - MJExtension (3.0.15.1)
+  - MJPhotoBrowser (1.0.2):
+    - SDWebImage
+    - SVProgressHUD
+    - YLGIFImage
+  - MJRefresh (3.0.8)
+  - Reachability (3.2)
+  - SDWebImage (3.7.6):
+    - SDWebImage/Core (= 3.7.6)
+  - SDWebImage/Core (3.7.6)
+  - SVProgressHUD (2.1.2)
+  - YLGIFImage (0.11)
+  - YUChineseSorting (1.0.2)
+  - YYKit (1.0.9):
+    - YYKit/no-arc (= 1.0.9)
+  - YYKit/no-arc (1.0.9)
+
+DEPENDENCIES:
+  - AFNetworking (~> 2.6.0)
+  - BlocksKit (~> 2.2.5)
+  - HPGrowingTextView (~> 1.1)
+  - IQKeyboardManager (~> 3.3.0)
+  - MBProgressHUD (~> 0.9.1)
+  - MJExtension (~> 3.0.10)
+  - MJPhotoBrowser (~> 1.0.2)
+  - MJRefresh (~> 3.0.1)
+  - Reachability (~> 3.2)
+  - SDWebImage (~> 3.7.3)
+  - YUChineseSorting (~> 1.0.2)
+  - YYKit (~> 1.0.9)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AFNetworking
+    - BlocksKit
+    - HPGrowingTextView
+    - IQKeyboardManager
+    - MBProgressHUD
+    - MJExtension
+    - MJPhotoBrowser
+    - MJRefresh
+    - Reachability
+    - SDWebImage
+    - SVProgressHUD
+    - YLGIFImage
+    - YUChineseSorting
+    - YYKit
+
+SPEC CHECKSUMS:
+  AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
+  BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
+  HPGrowingTextView: 88a716d97fb853bcb08a4a08e4727da17efc9b19
+  IQKeyboardManager: 249c3946acf61345c18b038eb50863fe2793e3a8
+  MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
+  MJExtension: 19bc33ce2eee2d319760f5622562cf581a6ff756
+  MJPhotoBrowser: b98b04d0e3b6a999feb44df68adec413af446809
+  MJRefresh: fafde8f18f4afd66b434331a9beb67a6c0264056
+  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
+  SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
+  SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
+  YLGIFImage: c0ae132fe80e5282b2762a97d14e23ba71a748ae
+  YUChineseSorting: 46bbd4fa0344e21b169a537bb17aafec0980c560
+  YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
+
+PODFILE CHECKSUM: eb887b91f5d83845c166b1f4cce569d045d47483
+
+COCOAPODS: 1.5.3
