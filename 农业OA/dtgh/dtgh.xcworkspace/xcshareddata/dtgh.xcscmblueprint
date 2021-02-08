@@ -1,0 +1,25 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "bed803ed-ce08-3346-92c9-90600d09cbe4++8056",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "bed803ed-ce08-3346-92c9-90600d09cbe4++8056" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "bed803ed-ce08-3346-92c9-90600d09cbe4++8056" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "47515373-32F0-493D-9902-40A13F7E9AC3",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "bed803ed-ce08-3346-92c9-90600d09cbe4++8056" : "newIOS\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "dtgh",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "dtgh\/dtgh.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/wx.zt.com.cn\/svn\/%E9%87%8D%E5%BA%86%E5%B8%82%E5%86%9C%E4%B8%9A%E5%A7%94%E5%91%98%E4%BC%9A",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "bed803ed-ce08-3346-92c9-90600d09cbe4++8056"
+    }
+  ]
+}
