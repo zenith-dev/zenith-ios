@@ -1,0 +1,35 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+#import "UIView+Size.h"
+#import "MacroFunctions.h"
+#import "BlocksKit.h"
+#import "ztOAService.h"
+#import <CFNetwork/CFNetwork.h>
+#import "JSONKit.h"
+#import "NSString+URL.h"
+#import "CXAlertView.h"
+#import "ZMobileOaKit.h"
+#import "ztOAGlobalVariable.h"
+#import "APService.h"
+#import "IQKeyboardManager.h"
+#import "UIButton+Bootstrap.h"
+#import "UIButton+Block.h"
+#define BACKCOLOR   MF_ColorFromRGB(55, 106, 199)
+#define NAVBARCOLOR MF_ColorFromRGB(246, 245, 244)
+//#define BACKCOLOR   [UIColor colorWithWhite:0.882 alpha:1.000]
+//系统版本号
+#define currentSystemVersion [[[UIDevice currentDevice] systemVersion] floatValue]
+#endif
