@@ -22,7 +22,7 @@
 #import "iAppOfficeService.h"
 #import "KWFileSystemModel.h"
 #define  LOGINPATH @"ZTMobileGateway/oaAjaxServlet"
-// 以下是认证可能会用到的认证信息
+// 以下是认证可能会用到的认证信息1
 short port = 443;                      //vpn设备端口号，一般为443
 NSString *vpnIp =    @"221.3.143.67";  //vpn设备IP地址
 NSString *userName = @"移动OA";         //用户名认证的用户名
