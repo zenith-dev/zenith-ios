@@ -1,0 +1,36 @@
+//
+//  filePch.pch
+//  CitySports
+//
+//  Created by 熊佳佳 on 16/1/25.
+//  Copyright © 2016年 熊佳佳. All rights reserved.
+//
+
+#ifndef filePch_pch
+#define filePch_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* filePch_pch */
+#ifdef __OBJC__
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import "YYBSingObj.h"
+#import "UIButton+Bootstrap.h"
+#import "Tools.h"
+#import <BlocksKit/BlocksKit.h>
+#import <BlocksKit/BlocksKit+UIKit.h>
+#import "NSString+util.h"
+#import "Macro.h"
+#import <MBProgressHUD/MBProgressHUD.h>
+#import <SDWebImage/SDImageCache.h>
+#import <MJRefresh/MJRefresh.h>
+#import <MJPhotoBrowser.h>
+#import <MJPhoto.h>
+#import <Reachability/Reachability.h>
+#import <IQKeyboardManager.h>
+#import <MJExtension.h>
+#import "UIView+Size.h"
+#import "UIViewController+util.h"
+#endif
