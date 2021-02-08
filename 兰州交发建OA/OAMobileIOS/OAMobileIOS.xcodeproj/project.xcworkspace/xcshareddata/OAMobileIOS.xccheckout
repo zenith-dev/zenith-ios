@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>0D3914DC-5E2D-429E-8C08-BDE460CF0735</string>
+	<key>IDESourceControlProjectName</key>
+	<string>OAMobileIOS</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>6C381DD4-F058-4FB1-AACD-60C0F5D311B6</key>
+		<string>svn://192.168.16.100/ProjectManage/OAMobileIOSNew/OAMobileIOS</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>OAMobileIOS/OAMobileIOS.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>6C381DD4-F058-4FB1-AACD-60C0F5D311B6</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectRepositoryRootDictionary</key>
+	<dict>
+		<key>6C381DD4-F058-4FB1-AACD-60C0F5D311B6</key>
+		<string>svn://192.168.16.100</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>svn://192.168.16.100/ProjectManage/OAMobileIOSNew/OAMobileIOS/OAMobileIOS.xcodeproj</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>6C381DD4-F058-4FB1-AACD-60C0F5D311B6</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.subversion</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>6C381DD4-F058-4FB1-AACD-60C0F5D311B6</string>
+			<key>IDESourceControlWCCName</key>
+			<string>OAMobileIOS</string>
+		</dict>
+	</array>
+</dict>
+</plist>
