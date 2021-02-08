@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1611" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LBAboutUsViewController">
+            <connections>
+                <outlet property="versionlb" destination="db1-P9-Lcp" id="IEf-gf-zIg"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="v4g-tV-JMu">
+                    <rect key="frame" x="130" y="83" width="60" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="Flq-CF-QZe"/>
+                        <constraint firstAttribute="height" constant="60" id="Rok-lZ-Olb"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="农委V1.0.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="db1-P9-Lcp">
+                    <rect key="frame" x="113" y="163" width="204" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="mlp-De-ma0"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.21568627450980393" green="0.5607843137254902" blue="0.54117647058823526" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="v4g-tV-JMu" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="83" id="B0X-Sf-22W"/>
+                <constraint firstAttribute="trailing" secondItem="db1-P9-Lcp" secondAttribute="trailing" constant="58" id="Cm3-Sn-Iau"/>
+                <constraint firstItem="v4g-tV-JMu" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="bH7-xg-zqb"/>
+                <constraint firstItem="db1-P9-Lcp" firstAttribute="top" secondItem="v4g-tV-JMu" secondAttribute="bottom" constant="20" id="jBK-jF-Xp1"/>
+                <constraint firstItem="db1-P9-Lcp" firstAttribute="top" secondItem="v4g-tV-JMu" secondAttribute="bottom" constant="20" id="pyj-Js-38q"/>
+                <constraint firstItem="db1-P9-Lcp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="58" id="sHT-RV-F1i"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="logo" width="60" height="60"/>
+    </resources>
+</document>
