@@ -39,6 +39,8 @@
 @property (nonatomic,strong)NSMutableArray *docAry;//公文流转列表
 @property (nonatomic,strong)NSMutableArray *dbxxArray;//督办信息
 @property (nonatomic,strong)NSMutableArray *fjAry;//附件列表
+@property (nonatomic,strong)NSMutableArray *fkfjAry;//反馈附件列表
+@property (nonatomic,strong)NSMutableArray *zwrxdffj;//答复附件列表
 @property (nonatomic,strong)NSMutableArray *ldpsyjArray;//领导批示
 @property (nonatomic,strong)NSMutableArray *dcldpsArray;//督查反馈领导意见
 @property (nonatomic,strong)NSMutableArray *opinionAry;//处理意见
@@ -58,7 +60,7 @@
 @end
 
 @implementation DocDealVC
-@synthesize intbzjllsh,doctodoModel,docAry,fjAry,gwxqBtn,cllcBtn,slidLabel,tableScrollView,lzbztb,lbzbary,gwlztb,gwDic,dbxxArray,ldpsyjArray,clyjtv,nextStepListArray,docDealModel,storeDicts,opinionAry,issxqp,type,conerightBtn,multRwselectRylst,dealfjvc,ctrone,iscsh,dxnrtv,dcldpsArray;
+@synthesize intbzjllsh,doctodoModel,docAry,fjAry,fkfjAry,zwrxdffj,gwxqBtn,cllcBtn,slidLabel,tableScrollView,lzbztb,lbzbary,gwlztb,gwDic,dbxxArray,ldpsyjArray,clyjtv,nextStepListArray,docDealModel,storeDicts,opinionAry,issxqp,type,conerightBtn,multRwselectRylst,dealfjvc,ctrone,iscsh,dxnrtv,dcldpsArray;
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -153,12 +155,29 @@
         [dbxxArray addObjectsFromArray:gwxxDic[@"dbxx"]];
     }
     fjAry=[[NSMutableArray alloc]init];
+    fkfjAry=[[NSMutableArray alloc]init];
+    zwrxdffj=[[NSMutableArray alloc]init];
     if ([gwxxDic[@"fj"] isKindOfClass:[NSDictionary class]]) {
         [fjAry addObject:gwxxDic[@"fj"]];
     }else if ([gwxxDic[@"fj"] isKindOfClass:[NSArray class]])
     {
         [fjAry addObjectsFromArray:gwxxDic[@"fj"]];
     }
+    //反馈附件数据解析
+    if ([gwxxDic[@"dcfkfj"] isKindOfClass:[NSDictionary class]]) {
+        [fkfjAry addObject:gwxxDic[@"dcfkfj"]];
+    }else if ([gwxxDic[@"dcfkfj"] isKindOfClass:[NSArray class]])
+    {
+        [fkfjAry addObjectsFromArray:gwxxDic[@"dcfkfj"]];
+    }
+    //答复附件数据解析
+    if ([gwxxDic[@"zwrxdffj"] isKindOfClass:[NSDictionary class]]) {
+        [zwrxdffj addObject:gwxxDic[@"zwrxdffj"]];
+    }else if ([gwxxDic[@"zwrxdffj"] isKindOfClass:[NSArray class]])
+    {
+        [zwrxdffj addObjectsFromArray:gwxxDic[@"zwrxdffj"]];
+    }
+    //处理意见数据解析
     if ([gwxxDic[@"clyj"] isKindOfClass:[NSDictionary class]]) {
         docDealModel.opinionSelectedDic =gwxxDic[@"clyj"];
     }else if([gwxxDic[@"clyj"] isKindOfClass:[NSArray class]])
@@ -207,6 +226,8 @@
     [docAry addObject:@"基础信息"];
     [docAry addObject:@"督办信息"];
     [docAry addObject:@"附件信息"];
+    [docAry addObject:@"反馈报告"];
+    [docAry addObject:@"答复附件"];
     [docAry addObject:@"领导意见"];
     [docAry addObject:@"反馈内容"];
     [docAry addObject:@"答复内容"];
@@ -875,7 +896,53 @@
             {
                 cell.contentView.height=0;
             }
+        }else if ([docAry[indexPath.row] isEqualToString:@"反馈报告"])
+        {
+            //反馈报告
+            if (fkfjAry.count!=0) {
+                dealfjvc=[[DealFjVC alloc]initWithFrame:CGRectMake(0, 5, kScreenWidth, 30+fkfjAry.count*44) fjAry:fkfjAry type1:666 controller:self];
+                dealfjvc.ctrone=ctrone;
+                dealfjvc.callback=^(BOOL issu){
+                    if (issu==YES) {
+                        [self getGwlzclxx];
+                    }
+                };
+                dealfjvc.intgwlzlsh=[NSString stringWithFormat:@"%@",doctodoModel.intgwlsh];
+                [cell.contentView addSubview:dealfjvc];
+                UILabel *onelb=[[UILabel alloc]initWithFrame:CGRectMake(0, dealfjvc.bottom+10, kScreenWidth, 0.5)];
+                [onelb setBackgroundColor:RGBCOLOR(220, 220, 220)];
+                cell.contentView.height=onelb.bottom;
+                [cell.contentView addSubview:onelb];
+            }
+            else
+            {
+                cell.contentView.height=0;
+            }
+        }else if ([docAry[indexPath.row] isEqualToString:@"答复附件"])
+        {
+            //答复附件
+            if (zwrxdffj.count!=0) {
+                dealfjvc=[[DealFjVC alloc]initWithFrame:CGRectMake(0, 5, kScreenWidth, 30+fkfjAry.count*44) fjAry:zwrxdffj type1:888 controller:self];
+                dealfjvc.ctrone=ctrone;
+                dealfjvc.callback=^(BOOL issu){
+                    if (issu==YES) {
+                        [self getGwlzclxx];
+                    }
+                };
+                dealfjvc.intgwlzlsh=[NSString stringWithFormat:@"%@",doctodoModel.intgwlsh];
+                [cell.contentView addSubview:dealfjvc];
+                UILabel *onelb=[[UILabel alloc]initWithFrame:CGRectMake(0, dealfjvc.bottom+10, kScreenWidth, 0.5)];
+                [onelb setBackgroundColor:RGBCOLOR(220, 220, 220)];
+                cell.contentView.height=onelb.bottom;
+                [cell.contentView addSubview:onelb];
+            }
+            else
+            {
+                cell.contentView.height=0;
+            }
         }
+
+
         else if ([docAry[indexPath.row] isEqualToString:@"领导意见"]){
             if (dcldpsArray.count>0) {
                 [cell.contentView setBackgroundColor:UIColorFromRGB(0xeaeaea)];

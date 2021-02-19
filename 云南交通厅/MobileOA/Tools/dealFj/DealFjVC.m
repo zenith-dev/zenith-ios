@@ -85,6 +85,8 @@
         label.text = type==8?@"文件列表：":@"附件：";
         if(type==666){
             label.text = @"反馈报告";
+        }else if(type==888){
+            label.text = @"答复附件";
         }
         [headView addSubview:label];
         return headView;
