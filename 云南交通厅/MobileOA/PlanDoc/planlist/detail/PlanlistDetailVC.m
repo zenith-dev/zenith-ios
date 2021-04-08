@@ -8,13 +8,13 @@
 
 #import "PlanlistDetailVC.h"
 
-@interface PlanlistDetailVC ()<UIWebViewDelegate>
+@interface PlanlistDetailVC ()<WKNavigationDelegate>
 @property (nonatomic,strong)UILabel *titlelb;
 @property (nonatomic,strong)UILabel *fsjslb;//时间
 @property (nonatomic,strong)UILabel *fbrlb;//人
 @property (nonatomic,strong)UILabel *onelb;
 @property (nonatomic,strong)NSDictionary *detaildic;
-@property (nonatomic,strong)UIWebView *connetWeb;//内容
+@property (nonatomic,strong)WKWebView *connetWeb;//内容
 @property (nonatomic,strong)NSString *noticeContextStr;
 @property (nonatomic,strong)UIScrollView *noticeScr;//滑动
 @property (nonatomic,strong)NSMutableArray *fjary;//附件列表
@@ -46,6 +46,7 @@
     [self.view addSubview:onelb];
     [self getNoticeDetailInfo];
     // Do any additional setup after loading the view.
+    
 }
 #pragma mark--------------获取公告详情-----------
 -(void)getNoticeDetailInfo{
@@ -85,15 +86,14 @@
     noticeScr.showsHorizontalScrollIndicator = NO;
     noticeScr.showsVerticalScrollIndicator = NO;
     [self.view addSubview:noticeScr];
-    connetWeb = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, noticeScr.width, noticeScr.height-180)];
-    [connetWeb setDelegate:self];
+    connetWeb = [[WKWebView alloc] initWithFrame:CGRectMake(0, 0, noticeScr.width, noticeScr.height-180)];
+    [connetWeb setNavigationDelegate:self];
     connetWeb.backgroundColor = [UIColor clearColor];
     //[connetWeb setScalesPageToFit:YES];
     [noticeScr addSubview:connetWeb];
     [connetWeb loadHTMLString:noticeContextStr baseURL:nil];
 }
--(void)webViewDidFinishLoad:(UIWebView *)webView
-{
+- (void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation{
     CGFloat webViewHeight=[connetWeb.scrollView contentSize].height;
     connetWeb.height=webViewHeight;
     [noticeScr setContentSize:CGSizeMake(noticeScr.width, connetWeb.bottom)];
@@ -103,6 +103,17 @@
         [noticeScr setContentSize:CGSizeMake(noticeScr.width, dealfjvc.bottom+10)];
     }
 }
+//-(void)webViewDidFinishLoad:(UIWebView *)webView
+//{
+//    CGFloat webViewHeight=[connetWeb.scrollView contentSize].height;
+//    connetWeb.height=webViewHeight;
+//    [noticeScr setContentSize:CGSizeMake(noticeScr.width, connetWeb.bottom)];
+//    if (fjary.count!=0) {
+//        DealFjVC *dealfjvc=[[DealFjVC alloc]initWithFrame:CGRectMake(0, connetWeb.bottom, kScreenWidth, 30+fjary.count*44) fjAry:fjary type1:8 controller:self];
+//        [noticeScr addSubview:dealfjvc];
+//        [noticeScr setContentSize:CGSizeMake(noticeScr.width, dealfjvc.bottom+10)];
+//    }
+//}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

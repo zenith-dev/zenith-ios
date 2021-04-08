@@ -6,8 +6,8 @@
 //  Copyright © 2016年 xj. All rights reserved.
 //
 
-#import <AFNetworking/AFNetworking.h>
+//#import <AFNetworking/AFNetworking.h>
 
-@interface AFAppNetAPI : AFHTTPRequestOperationManager
+@interface AFAppNetAPI : AFHTTPSessionManager
 + (instancetype)sharedClient;
 @end

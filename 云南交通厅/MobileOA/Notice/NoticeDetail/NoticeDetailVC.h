@@ -7,6 +7,7 @@
 //
 
 #import "BaseViewController.h"
+#import <WebKit/WebKit.h>
 @interface NoticeDetailVC : BaseViewController
 @property (nonatomic,assign)int type;
 @property (nonatomic, copy) void (^callback)(BOOL issu);

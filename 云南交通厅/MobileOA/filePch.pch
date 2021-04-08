@@ -33,4 +33,5 @@
 #import <MJExtension.h>
 #import "UIView+Size.h"
 #import "UIViewController+util.h"
+#import <AFNetworking/AFHTTPSessionManager.h>
 #endif

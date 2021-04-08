@@ -7,7 +7,7 @@
 //
 
 #import "BaseViewController.h"
-
+#import <WebKit/WebKit.h>
 @interface LinkURLVC : BaseViewController
 @property (nonatomic,strong)NSString *urlstr;
 @end

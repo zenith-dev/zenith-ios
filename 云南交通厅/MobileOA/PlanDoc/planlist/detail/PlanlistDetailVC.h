@@ -8,6 +8,7 @@
 
 #import "BaseViewController.h"
 #import "PlanListDocModel.h"
+#import <WebKit/WebKit.h>
 @interface PlanlistDetailVC : BaseViewController
 @property (nonatomic,strong)PlanListDocModel *planlistdocmodel;
 @end

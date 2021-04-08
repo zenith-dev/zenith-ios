@@ -24,6 +24,8 @@
         [_sharedClient.requestSerializer setValue:@"ajax" forHTTPHeaderField:@"RequestType"];
         _sharedClient.requestSerializer.HTTPShouldHandleCookies=YES;
         _sharedClient.requestSerializer.timeoutInterval = 50;
+        // 添加这句代码
+        _sharedClient.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", nil];
     });
     return _sharedClient;
 }

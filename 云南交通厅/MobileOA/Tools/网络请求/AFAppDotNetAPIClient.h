@@ -6,8 +6,10 @@
 //  Copyright © 2015年 熊佳佳. All rights reserved.
 //
 
-#import <AFHTTPRequestOperationManager.h>
-@interface AFAppDotNetAPIClient : AFHTTPRequestOperationManager
+//#import <AFHTTPRequestOperationManager.h>
+#import <AFHTTPSessionManager.h>
+
+@interface AFAppDotNetAPIClient : AFHTTPSessionManager
 + (AFAppDotNetAPIClient*)setRequestClass:(NSString *)requestClass requestMethod:(NSString *)requestMethod requestHasParams:(NSString *)requestHasParams;
 + (AFAppDotNetAPIClient*)sharedClientHTTP;
 

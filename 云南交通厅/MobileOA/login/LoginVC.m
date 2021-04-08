@@ -232,34 +232,8 @@
     }];
 }
 -(void)linkVPN{
-    [self versionUp];
 }
-#pragma mark-----------------------请求升级接口-----------------
--(void)versionUp{
-    [self newworkversionallGet:@"ios.json" parameter:nil progresHudText:nil completionBlock:^(id rep) {
-        
-        NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
-        NSString *app_Version = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
-        NSLog(@"%@",app_Version);
-        if (rep!=nil) {
-            NSLog(@"%@",[rep mj_JSONObject]);
-            NSDictionary *redic=[rep mj_JSONObject];
-            if ([redic isKindOfClass:[NSDictionary class]])
-            {
-                if (![app_Version isEqualToString:redic[@"version"]]) {
-                    UIAlertView *alertv=[UIAlertView bk_showAlertViewWithTitle:@"温馨提示" message:@"已有新版本请升级" cancelButtonTitle:@"取消" otherButtonTitles:@[@"确定"] handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
-                         if (buttonIndex==1) {
-                            // [[UIApplication sharedApplication]openURL:[NSURL URLWithString:redic[@"apkurl"]]];
-                             [[UIApplication sharedApplication]openURL:[NSURL URLWithString:[NSString stringWithFormat:@"itms-services://?action=download-manifest&url=%@",redic[@"apkurl"]]]];
-                        }
-                    }];
-                    [alertv show];
-                }
-                NSLog(@"%@",redic);
-            }
-        }
-    }];
-}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

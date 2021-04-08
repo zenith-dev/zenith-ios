@@ -23,7 +23,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [[IQKeyboardManager sharedManager] disableInViewControllerClass:[QueryChatxqVC class]];
+//    [[IQKeyboardManager sharedManager] disableInViewControllerClass:[QueryChatxqVC class]];
     [IQKeyboardManager sharedManager].keyboardDistanceFromTextField=10;
     // 是否显示键盘上的工具条
     [IQKeyboardManager sharedManager].enableAutoToolbar = NO;

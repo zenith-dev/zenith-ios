@@ -8,13 +8,13 @@
 
 #import "NoticeDetailVC.h"
 #import "DealFjVC.h"
-@interface NoticeDetailVC ()<UIWebViewDelegate>
+@interface NoticeDetailVC ()<WKNavigationDelegate>
 @property (nonatomic,strong)UILabel *titlelb;
 @property (nonatomic,strong)UILabel *fsjslb;//时间
 @property (nonatomic,strong)UILabel *fbrlb;//人
 @property (nonatomic,strong)UILabel *onelb;
 @property (nonatomic,strong)NSDictionary *detaildic;
-@property (nonatomic,strong)UIWebView *connetWeb;//内容
+@property (nonatomic,strong)WKWebView *connetWeb;//内容
 @property (nonatomic,strong)NSString *noticeContextStr;
 @property (nonatomic,strong)UIScrollView *noticeScr;//滑动
 @property (nonatomic,strong)NSMutableArray *fjary;//附件列表
@@ -132,15 +132,26 @@
     noticeScr.showsHorizontalScrollIndicator = NO;
     noticeScr.showsVerticalScrollIndicator = NO;
     [self.view addSubview:noticeScr];
-    connetWeb = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, noticeScr.width, noticeScr.height-180)];
-    [connetWeb setDelegate:self];
+    connetWeb = [[WKWebView alloc] initWithFrame:CGRectMake(0, 0, noticeScr.width, noticeScr.height-180)];
+    //[connetWeb setDelegate:self];
+    [connetWeb setNavigationDelegate:self];
     connetWeb.backgroundColor = [UIColor clearColor];
     //[connetWeb setScalesPageToFit:YES];
     [noticeScr addSubview:connetWeb];
     [connetWeb loadHTMLString:noticeContextStr baseURL:nil];
 }
--(void)webViewDidFinishLoad:(UIWebView *)webView
-{
+//-(void)webViewDidFinishLoad:(UIWebView *)webView
+//{
+//    CGFloat webViewHeight=[connetWeb.scrollView contentSize].height;
+//    connetWeb.height=webViewHeight;
+//    [noticeScr setContentSize:CGSizeMake(noticeScr.width, connetWeb.bottom)];
+//    if (fjary.count!=0) {
+//        DealFjVC *dealfjvc=[[DealFjVC alloc]initWithFrame:CGRectMake(0, connetWeb.bottom, kScreenWidth, 30+fjary.count*44) fjAry:fjary type1:self.type controller:self];
+//        [noticeScr addSubview:dealfjvc];
+//        [noticeScr setContentSize:CGSizeMake(noticeScr.width, dealfjvc.bottom+10)];
+//    }
+//}
+- (void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation{
     CGFloat webViewHeight=[connetWeb.scrollView contentSize].height;
     connetWeb.height=webViewHeight;
     [noticeScr setContentSize:CGSizeMake(noticeScr.width, connetWeb.bottom)];

@@ -479,12 +479,12 @@
 {
     if ([Tools IsNetwork]) {
         MBProgressHUD *hud=[self progressWaitingWithMessage:hudText];
-        [[AFAppDotNetAPIClient setRequestClass:requestClass requestMethod:requestMethod requestHasParams:requestHasParams] POST:[NSString stringWithFormat:@"http://%@:%@/%@",SingObj.serviceIp,SingObj.servicePort,LOGINPATH] parameters:paramterdic success:^(AFHTTPRequestOperation * operation, id responseObject) {
+        [[AFAppDotNetAPIClient setRequestClass:requestClass requestMethod:requestMethod requestHasParams:requestHasParams] POST:[NSString stringWithFormat:@"http://%@:%@/%@",SingObj.serviceIp,SingObj.servicePort,LOGINPATH] parameters:paramterdic success:^(NSURLSessionDataTask * operation, id responseObject) {
             [hud hide:YES];
             NSLog(@"%@",[responseObject mj_JSONString]);
             responseObject=[responseObject killNull];
             completionBlock(responseObject);
-        } failure:^(AFHTTPRequestOperation * operation, NSError *error) {
+        } failure:^(NSURLSessionDataTask * operation, NSError *error) {
             [hud hide:YES];
             [self showMessage:@"网络不稳定，请重试"];
             completionBlock(nil);

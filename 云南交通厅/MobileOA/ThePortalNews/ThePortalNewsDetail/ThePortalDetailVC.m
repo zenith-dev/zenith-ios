@@ -8,13 +8,13 @@
 
 #import "ThePortalDetailVC.h"
 
-@interface ThePortalDetailVC ()<UIWebViewDelegate>
+@interface ThePortalDetailVC ()<WKNavigationDelegate>
 {
     MBProgressHUD *hud;
 }
 @property (nonatomic,strong)UILabel *titlelb;
 @property (nonatomic,strong)UILabel *timelb;
-@property (nonatomic,strong)UIWebView *connetWeb;//内容
+@property (nonatomic,strong)WKWebView *connetWeb;//内容
 @property (nonatomic,strong)NSString *htmlStr;
 @end
 
@@ -64,19 +64,27 @@
     timelb.textColor=[UIColor grayColor];
     [self.view addSubview:timelb];
     
-    connetWeb =[[UIWebView alloc]initWithFrame:CGRectMake(5, timelb.bottom+5, kScreenWidth-10, kScreenHeight-timelb.bottom-10)];
-    [connetWeb setDelegate:self];
+    connetWeb =[[WKWebView alloc]initWithFrame:CGRectMake(5, timelb.bottom+5, kScreenWidth-10, kScreenHeight-timelb.bottom-10)];
+    //[connetWeb setDelegate:self];
+    [connetWeb setNavigationDelegate:self];
     connetWeb.backgroundColor = [UIColor clearColor];
     [self.view addSubview:connetWeb];
     [connetWeb loadHTMLString:htmlStr baseURL:nil];
 }
--(void)webViewDidStartLoad:(UIWebView *)webView
-{
-   hud=[self progressWaitingWithMessage:@"加载中..."];
+//-(void)webViewDidStartLoad:(UIWebView *)webView
+//{
+//   hud=[self progressWaitingWithMessage:@"加载中..."];
+//}
+//-(void)webViewDidFinishLoad:(UIWebView *)webView
+//{
+//     [hud hide:YES];
+//}
+#pragma mark WKNavigationDelegate
+- (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(null_unspecified WKNavigation *)navigation{
+    hud=[self progressWaitingWithMessage:@"加载中..."];
 }
--(void)webViewDidFinishLoad:(UIWebView *)webView
-{
-     [hud hide:YES];
+- (void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation{
+    [hud hide:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

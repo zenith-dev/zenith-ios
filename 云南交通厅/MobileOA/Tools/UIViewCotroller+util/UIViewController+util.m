@@ -52,7 +52,7 @@
     if ([Tools IsNetwork]) {
         MBProgressHUD *hud=[self progressWaitingWithMessage:hudText];
         
-        [[AFAppDotNetAPIClient setRequestClass:requestClass requestMethod:requestMethod requestHasParams:requestHasParams] POST:[NSString stringWithFormat:@"http://%@:%@/%@",SingObj.serviceIp,SingObj.servicePort,LOGINPATH] parameters:paramterdic success:^(AFHTTPRequestOperation * operation, id responseObject) {
+        [[AFAppDotNetAPIClient setRequestClass:requestClass requestMethod:requestMethod requestHasParams:requestHasParams] POST:[NSString stringWithFormat:@"http://%@:%@/%@",SingObj.serviceIp,SingObj.servicePort,LOGINPATH] parameters:paramterdic success:^(NSURLSessionDataTask * operation, id responseObject) {
             [hud hide:YES];
             NSLog(@"%@",[responseObject mj_JSONString]);
             responseObject=[responseObject killNull];
@@ -64,7 +64,7 @@
                 [self showMessage:responseObject[@"root"][@"message"]];
                 completionBlock(nil);
             }
-        } failure:^(AFHTTPRequestOperation * operation, NSError *error) {
+        } failure:^(NSURLSessionDataTask * operation, NSError *error) {
             [hud hide:YES];
             [self showMessage:@"网络不稳定，请重试"];
             completionBlock(nil);
@@ -80,12 +80,12 @@
 {
     if ([Tools IsNetwork]) {
         MBProgressHUD *hud=[self progressWaitingWithMessage:hudText];
-        [[AFAppDotNetAPIClient setRequestClass:requestClass requestMethod:requestMethod requestHasParams:requestHasParams] POST:[NSString stringWithFormat:@"http://%@:%@/%@",SingObj.serviceIp,SingObj.servicePort,LOGINPATH] parameters:paramterdic success:^(AFHTTPRequestOperation * operation, id responseObject) {
+        [[AFAppDotNetAPIClient setRequestClass:requestClass requestMethod:requestMethod requestHasParams:requestHasParams] POST:[NSString stringWithFormat:@"http://%@:%@/%@",SingObj.serviceIp,SingObj.servicePort,LOGINPATH] parameters:paramterdic success:^(NSURLSessionDataTask * operation, id responseObject) {
             [hud hide:YES];
             NSLog(@"%@",[responseObject mj_JSONString]);
             responseObject=[responseObject killNull];
             completionBlock(responseObject);
-        } failure:^(AFHTTPRequestOperation * operation, NSError *error) {
+        } failure:^(NSURLSessionDataTask * operation, NSError *error) {
             [hud hide:YES];
             [self showMessage:@"网络不稳定，请重试"];
             completionBlock(nil);
@@ -108,16 +108,17 @@
  *  @param hudText          是否需要等待指示器
  *  @param completionBlock  返回值
  */
+/**error    NSError *    domain: @"com.alamofire.error.serialization.response" - code: 18446744073709550600    0x00000002835a3cc0**/
 -(void)networkLogin:(NSString*)requestClass requestMethod:(NSString*)requestMethod requestHasParams:(NSString*)requestHasParams parameter:(NSDictionary*)paramterdic progresHudText:(NSString*)hudText completionBlock:(void (^)(id rep))completionBlock;
 {
     if ([Tools IsNetwork]) {
         MBProgressHUD *hud=[self progressWaitingWithMessage:hudText];
-        [[AFAppDotNetAPIClient setRequestClass:requestClass requestMethod:requestMethod requestHasParams:requestHasParams] POST: [NSString stringWithFormat:@"http://%@:%@/%@",SingObj.serviceIp,SingObj.servicePort,LOGINPATH] parameters:paramterdic success:^(AFHTTPRequestOperation * operation, id responseObject) {
+        [[AFAppDotNetAPIClient setRequestClass:requestClass requestMethod:requestMethod requestHasParams:requestHasParams] POST: [NSString stringWithFormat:@"http://%@:%@/%@",SingObj.serviceIp,SingObj.servicePort,LOGINPATH] parameters:paramterdic success:^(NSURLSessionDataTask * operation, id responseObject) {
             [hud hide:YES];
             NSLog(@"%@",[responseObject mj_JSONString]);
             responseObject=[responseObject killNull];
             completionBlock(responseObject[@"root"]);
-        } failure:^(AFHTTPRequestOperation * operation, NSError *error) {
+        } failure:^(NSURLSessionDataTask * operation, NSError *error) {
             [hud hide:YES];
             [self showMessage:@"网络不稳定，请重试"];
             completionBlock(nil);
@@ -134,14 +135,14 @@
 {
     if ([Tools IsNetwork]) {
         MBProgressHUD *hud=[self progressWaitingWithMessage:hudText];
-        [[AFAppNetAPI sharedClient] GET:[NSString stringWithFormat:@"http://172.17.204.119:9090/WebService/mobile/%@",url] parameters:paramterdic success:^(AFHTTPRequestOperation * operation, id  responseObject) {
+        [[AFAppNetAPI sharedClient] GET:[NSString stringWithFormat:@"http://172.17.204.119:9090/WebService/mobile/%@",url] parameters:paramterdic success:^(NSURLSessionDataTask * operation, id  responseObject) {
             [hud hide:YES];
             NSString *aString = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
             NSLog(@"%@",[aString mj_JSONString]);
             NSDictionary *resdic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
             resdic=[resdic killNull];
             completionBlock(resdic);
-        } failure:^(AFHTTPRequestOperation *  operation, NSError *  error) {
+        } failure:^(NSURLSessionDataTask *  operation, NSError *  error) {
             [hud hide:YES];
             [self showMessage:error.localizedFailureReason];
             completionBlock(nil);
@@ -157,12 +158,12 @@
 {
     if ([Tools IsNetwork]) {
         MBProgressHUD *hud=[self progressWaitingWithMessage:hudText];
-        [[AFAppNetAPI sharedClient] GET:[NSString stringWithFormat:@"http://%@:%@/ZTMobileGateway/%@",SingObj.serviceIp,SingObj.servicePort,url] parameters:paramterdic success:^(AFHTTPRequestOperation * operation, id  responseObject) {
+        [[AFAppNetAPI sharedClient] GET:[NSString stringWithFormat:@"http://%@:%@/ZTMobileGateway/%@",SingObj.serviceIp,SingObj.servicePort,url] parameters:paramterdic success:^(NSURLSessionDataTask * operation, id  responseObject) {
             [hud hide:YES];
             NSString *aString = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
             NSLog(@"%@",[aString mj_JSONString]);
             completionBlock(aString);
-        } failure:^(AFHTTPRequestOperation *  operation, NSError *  error) {
+        } failure:^(NSURLSessionDataTask *  operation, NSError *  error) {
             [hud hide:YES];
             [self showMessage:error.localizedFailureReason];
             completionBlock(nil);
@@ -182,12 +183,12 @@
 {
     if ([Tools IsNetwork]) {
         MBProgressHUD *hud=[self progressWaitingWithMessage:hudText];
-        [[AFAppNetAPI sharedClient] GET:[NSString stringWithFormat:@"http://172.17.204.119:9090/WebService/mobile/%@",url] parameters:paramterdic success:^(AFHTTPRequestOperation * operation, id  responseObject) {
+        [[AFAppNetAPI sharedClient] GET:[NSString stringWithFormat:@"http://172.17.204.119:9090/WebService/mobile/%@",url] parameters:paramterdic success:^(NSURLSessionDataTask * operation, id  responseObject) {
             [hud hide:YES];
             NSString *aString = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
             NSLog(@"%@",[aString mj_JSONString]);
             completionBlock(aString);
-        } failure:^(AFHTTPRequestOperation *  operation, NSError *  error) {
+        } failure:^(NSURLSessionDataTask *  operation, NSError *  error) {
             [hud hide:YES];
             [self showMessage:error.localizedFailureReason];
             completionBlock(nil);

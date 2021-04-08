@@ -7,7 +7,7 @@
 //
 
 #import "BaseViewController.h"
-
+#import <WebKit/WebKit.h>
 @interface ThePortalDetailVC : BaseViewController
 @property (nonatomic,strong)NSString *news_id;
 @end
